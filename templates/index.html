@@ -1,0 +1,210 @@
+{% extends "base.html" %}
+
+{% block title %}Personality Quiz Daily - Discover Yourself Every Day{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Discover Your</span>
+                    <span class="title-line highlight">True Self</span>
+                    <span class="title-line">Every Day</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Take our daily personality quiz and unlock new insights about yourself. 
+                    Each day brings a fresh perspective on who you are and who you're becoming.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" id="start-quiz-btn" href="{{ url_for('quiz') }}">
+                        <i class="fas fa-play"></i>
+                        Start Today's Quiz
+                    </a>
+                    <a class="btn btn-secondary" id="learn-more-btn" href="#features">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Daily Quizzes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">365</span>
+                        <span class="stat-label">Unique Questions</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Accuracy Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="quiz-preview">
+                    <div class="quiz-card">
+                        <div class="quiz-header">
+                            <div class="quiz-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="quiz-title">Which Cute Animal Are You?</div>
+                        </div>
+                        <div class="quiz-question">
+                            <p>What motivates you most in life?</p>
+                        </div>
+                        <div class="quiz-options">
+                            <div class="option">A) Personal growth</div>
+                            <div class="option">B) Helping others</div>
+                            <div class="option">C) Achieving goals</div>
+                            <div class="option">D) Creative expression</div>
+                        </div>
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="progress-text">Question 1 of 10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose Our Daily Personality Quiz?</h2>
+            <p>Experience the most comprehensive and engaging personality assessment platform</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <h3>Fresh Daily Content</h3>
+                <p>New questions every day to keep your self-discovery journey exciting and dynamic.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Detailed Analytics</h3>
+                <p>Track your personality evolution over time with comprehensive insights and trends.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Community Insights</h3>
+                <p>Compare your results with others and discover how you fit into the bigger picture.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Optimized</h3>
+                <p>Take quizzes anywhere, anytime with our fully responsive and mobile-friendly design.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <h2>How It Works</h2>
+            <p>Simple steps to unlock your personality insights</p>
+        </div>
+        
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Take Today's Quiz</h3>
+                    <p>Answer 10 carefully crafted questions designed to reveal different aspects of your personality.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Get Instant Results</h3>
+                    <p>Receive detailed analysis and insights about your personality traits and characteristics.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Track Your Journey</h3>
+                    <p>Monitor how your personality evolves over time with our comprehensive tracking system.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Discover Your True Self?</h2>
+            <p>Join thousands of people who take our daily personality quiz to better understand themselves.</p>
+            <a class="btn btn-primary btn-large" id="cta-start-quiz" href="{{ url_for('quiz') }}">
+                <i class="fas fa-rocket"></i>
+                Start Your Journey Today
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Personality Quiz Daily</h3>
+                <p>Discover yourself, one quiz at a time.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">FAQ</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Personality Quiz Daily. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}

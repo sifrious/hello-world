@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Your Cute Animal Result - Personality Quiz Daily{% endblock %}
+
+{% block content %}
+<section class="features" style="padding-top: 4rem;">
+  <div class="container">
+    <style>
+      .result-hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;margin-bottom:2rem}
+      .result-name{font-size:2.25rem;font-weight:800}
+      .result-tag{color:var(--text-secondary)}
+      .result-card{background:#fff;border:1px solid var(--border-color);border-radius:1rem;box-shadow:var(--shadow-lg);padding:1.5rem;margin-bottom:2rem}
+      .traits{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+      .trait{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:999px;padding:.4rem .8rem;font-weight:600;font-size:.9rem}
+    </style>
+    <div class="result-hero">
+      <div style="font-size:3rem">{{ profile.emoji }}</div>
+      <div class="result-name">You are a {{ profile.name }}!</div>
+      <div class="result-tag">{{ profile.tagline }}</div>
+    </div>
+
+    <div class="result-card">
+      <p>{{ profile.description }}</p>
+    </div>
+
+    <div class="result-card">
+      <h3 style="margin-bottom:.75rem;">Your Vibe Check</h3>
+      <div class="traits">
+        {% for t in profile.traits %}
+        <span class="trait">{{ t }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="result-card">
+      <h3 style="margin-bottom:.75rem;">What We Logged (For Science 🧪)</h3>
+      <p>Don’t worry — this is a demo for security folks. We logged headers and metadata, not your secrets.</p>
+    </div>
+
+    <div style="text-align:center; margin-top:1rem;">
+      <a href="{{ url_for('quiz') }}" class="btn btn-secondary">Retake Quiz</a>
+      <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

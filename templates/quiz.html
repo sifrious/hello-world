@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Which Cute Animal Are You? - Personality Quiz Daily{% endblock %}
+
+{% block content %}
+<style>
+    /* Quiz page specific layout overrides */
+    .quiz-wrap { padding: 2rem 0; background: #fff; }
+    .quiz-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; max-width: 1100px; margin: 0 auto; width: 100%; }
+    .quiz-card { background: #fff; border: 1px solid var(--border-color); border-radius: 1rem; box-shadow: var(--shadow-lg); padding: 1.25rem 1.5rem; width: 100%; }
+    .quiz-row { display: flex; flex-direction: column; gap: 1rem; align-items: stretch; }
+    .quiz-q { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); line-height: 1.35; }
+    .quiz-opts label.option { background: var(--bg-secondary); border-radius: .5rem; padding: .9rem 1rem; margin-bottom: .6rem; display: flex; align-items: center; gap: .6rem; width: 100%; }
+    .quiz-opts input[type="radio"] { accent-color: #6366f1; }
+    .quiz-submit { text-align: center; margin-top: 1rem; }
+    .quiz-opts .option span { flex: 1; min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
+    .quiz-grid, .quiz-card, .quiz-row, .quiz-opts, .quiz-opts .option { max-width: 100%; }
+    .quiz-wrap, .quiz-grid { overflow-x: hidden; }
+    /* Ensure hover state is visibly purple */
+    .quiz-opts label.option:hover { background: var(--primary-color); color: #fff; }
+    .quiz-opts label.option:hover span { color: #fff; }
+    .quiz-opts label.option:focus-within { outline: 2px solid var(--primary-color); outline-offset: 2px; }
+
+    @media (min-width: 900px) {
+        /* On medium/large screens, place question and answers side-by-side */
+        .quiz-row { flex-direction: row; align-items: flex-start; }
+        .quiz-q { flex: 0 0 42%; padding-right: 1.25rem; }
+        .quiz-opts { flex: 1 1 auto; min-width: 0; }
+    }
+</style>
+
+<section class="quiz-wrap">
+    <div class="container">
+        <h1>Which Cute Animal Are You?</h1>
+        <form class="quiz-form" method="post" action="{{ url_for('quiz') }}">
+            <div class="quiz-grid">
+                {% for q in questions %}
+                <div class="quiz-card">
+                    <div class="quiz-row">
+                        <div class="quiz-q">Q{{ loop.index }}. {{ q.prompt }}</div>
+                        <div class="quiz-opts">
+                            {% if q.type == 'radio' %}
+                                {% for opt in q.options %}
+                                <label class="option">
+                                    <input type="radio" name="{{ q.id }}" value="{{ opt }}" required>
+                                    <span>{{ opt }}</span>
+                                </label>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="quiz-submit">
+                <button class="btn btn-primary btn-large" type="submit">
+                    <i class="fas fa-shield-alt"></i>
+                    Submit (No secrets harmed)
+                </button>
+            </div>
+        </form>
+    </div>
+    </section>
+{% endblock %}
+
+
